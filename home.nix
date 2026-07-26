@@ -3,7 +3,11 @@
 {
 	home.username = "dexter";
 	home.homeDirectory = "/home/dexter";
-	programs.git.enable = true;
+	programs.git = {
+		enable = true;
+		userName = "p8by";
+		userEmail = "250748350+p8by@users.noreply.github.com";
+	};
 	home.stateVersion = "26.05";
 	programs.bash = {
 		enable = true;

@@ -191,7 +191,6 @@
     vim
     wget
     protonup-qt
-    git
   ];
  
 
