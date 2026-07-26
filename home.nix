@@ -29,7 +29,7 @@
 		config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles/dotfiles/fastfetch/config.jsonc";
 	home.packages = with pkgs; [
 	#####################################################
-	# 		GENERAL PROGRAMS		    #
+	# 		GENERAL PROGRAM
 	#####################################################
 		fastfetch
 		starship
@@ -58,7 +58,7 @@
 		winetricks
 		qemu
 	#####################################################
-	#	         SYSTEM/PROG LANG		    #
+	#	         SYSTEM/PROG LANG
 	#####################################################
 		
 		python3
@@ -83,7 +83,7 @@
 		#End
 
 	#####################################################
-	#		    FONTS			    #
+	#		    FONTS
 	#####################################################
 		nerd-fonts.hack
 		nerd-fonts.fira-code
