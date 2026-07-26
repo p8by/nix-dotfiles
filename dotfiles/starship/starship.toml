@@ -1,0 +1,101 @@
+
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+[](#0a2540)\
+$os\
+[](bg:#123a5c fg:#0a2540)\
+$directory\
+[](bg:#1a4d75 fg:#123a5c)\
+$git_branch$git_status\
+[](bg:#1f5c8b fg:#1a4d75)\
+$nix_shell\
+[](fg:#1f5c8b)\
+$fill\
+[](fg:#1a4d75)\
+$cmd_duration\
+[](fg:#123a5c)\
+$time\
+[ ](fg:#0a2540)
+$character"""
+
+add_newline = true
+palette = "blue_square"
+
+[palettes.blue_square]
+bg0 = "#0a2540"
+bg1 = "#123a5c"
+bg2 = "#1a4d75"
+bg3 = "#1f5c8b"
+fg  = "#eaf4ff"
+accent = "#66c2ff"
+
+[fill]
+symbol = " "
+
+[os]
+disabled = false
+style = "bg:#0a2540 fg:#eaf4ff"
+format = "[ $symbol ]($style)"
+
+[os.symbols]
+NixOS = "󱄅"
+Linux = ""
+Windows = ""
+Macos = ""
+
+[nix_shell]
+disabled = false
+style = "bg:#1f5c8b fg:#eaf4ff"
+symbol = "❄️ "
+format = "[ $symbol$state ]($style)"
+impure_msg = "impure"
+pure_msg = "pure"
+
+[directory]
+style = "bg:#123a5c fg:#eaf4ff"
+format = "[ 󰉋 $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+read_only = " 󰌾"
+
+[git_branch]
+style = "bg:#1a4d75 fg:#eaf4ff"
+symbol = ""
+format = "[ $symbol $branch ]($style)"
+
+[git_status]
+style = "bg:#1a4d75 fg:#eaf4ff"
+format = '[($all_status$ahead_behind )]($style)'
+
+[cmd_duration]
+style = "bg:#1a4d75 fg:#eaf4ff"
+format = "[  $duration ]($style)"
+min_time = 500
+
+[time]
+disabled = false
+style = "bg:#123a5c fg:#eaf4ff"
+format = "[  $time ]($style)"
+time_format = "%H:%M"
+
+[character]
+success_symbol = "[❯](bold #66c2ff)"
+error_symbol = "[❯](bold #ff6b6b)"
+vimcmd_symbol = "[❮](bold #66c2ff)"
+
+[package]
+disabled = true
+
+[username]
+style_user = "bg:#0a2540 fg:#eaf4ff"
+style_root = "bg:#0a2540 fg:#ff6b6b"
+format = "[ $user ]($style)"
+disabled = true
+show_always = false
+
+[hostname]
+ssh_only = true
+style = "bg:#0a2540 fg:#eaf4ff"
+format = "[ $hostname ]($style)"
+disabled = true

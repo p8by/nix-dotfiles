@@ -1,0 +1,30 @@
+// [0mFastfetch Theme Manager v3
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    "logo": {
+        "type": "small"
+    },
+    "display": {
+        "separator": " \u279c  ",
+        "color": "blue"
+    },
+    "modules": [
+        "title",
+        "separator",
+        "os",
+        "host",
+        "kernel",
+        "uptime",
+        "packages",
+        "cpu",
+        "memory",
+        {
+            "type": "disk",
+            "showFree": true,
+            "showAvailable": true
+        },
+        "localip",
+        "break",
+        "colors"
+    ]
+}
