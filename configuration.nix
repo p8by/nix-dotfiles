@@ -170,6 +170,12 @@
       '';
     };
   };
+ 
+ programs.zsh = {
+  	enable = true;
+	enableCompletion = true;
+	autosuggestions.enable = true;
+  };
 
   ############################################################################
   # Users
@@ -184,7 +190,6 @@
     ];
   };
   
-  programs.zsh.enable = true;
   users.users.dexter.shell = pkgs.zsh;
   
   ############################################################################
