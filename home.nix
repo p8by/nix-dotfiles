@@ -5,11 +5,11 @@
 	home.homeDirectory = "/home/dexter";
 	programs.git = {
 		enable = true;
-		userName = "p8by";
-		userEmail = "250748350+p8by@users.noreply.github.com";
+		settings.user.name = "p8by";
+		settings.user.email = "250748350+p8by@users.noreply.github.com";
 	};
 	home.stateVersion = "26.05";
-	programs.bash = {
+	programs.zsh = {
 		enable = true;
 		shellAliases = {
 			nrs = "sudo nixos-rebuild switch --flake ~/nixos-dotfiles#nixos";
@@ -18,8 +18,9 @@
 			eflake = "sudo nvim ~/nixos-dotfiles/flake.nix";
 			usys = "cd ~/nixos-dotfiles && nix flake update && echo run nrs now && cd -";
 		};
-		initExtra = ''
-			eval "$(${pkgs.starship}/bin/starship init bash)"
+
+		initContent = ''
+			eval "$(${pkgs.starship}/bin/starship init zsh)"
 		'';
 	};
 
