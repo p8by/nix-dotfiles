@@ -52,10 +52,12 @@
 		feh
 		cava
 		lazygit
+		senpai #irc terminal client
+		soju # irc bouncer
 
 		virt-manager
 		libvirt
-		wine
+		wineWow64Packages.base
 		winetricks
 		qemu
 	#####################################################
