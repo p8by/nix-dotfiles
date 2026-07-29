@@ -115,7 +115,7 @@
     };
   };
 
- # services.desktopManager.plasma6.enable = true;
+  services.desktopManager.plasma6.enable = true; #NOT the login screen
 
   services.displayManager.ly = {
     enable = true;
