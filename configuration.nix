@@ -9,29 +9,42 @@
   ############################################################################
   # Boot
   ############################################################################
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot = {
+	kernelPackages = pkgs.linuxPackages_latest;
+	loader = {
+		efi.canTouchEfiVariables = true;
+		grub = {
+			enable = true;
+			memtest86.enable = true;
+			device = "nodev"; #nodev is for EFI
+			efiSupport = true;
+		};
+	};
+
+  };
 
   ############################################################################
   # Networking
   ############################################################################
-  networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true;
+  networking = {
+	hostName = "nixos";
+	networkmanager = {
+		enable = true;
+		dns = "none";
+	};
+  	firewall = {
+		enable = true;
+		allowedTCPPorts = [];
+		allowedUDPPorts = [];
+	};
+	nameservers = [
+		"9.9.9.9" #quad9 dns
+		"149.112.112.112" # quad9 secondary dns
+	];
 
-  # Firewall
-  networking.firewall.enable = false;
-  networking.networkmanager.dns = "none";
-  networking.nameservers = [
-	"9.9.9.9" #quad9 dns
-	"149.112.112.112" #quad9 secondary dns
+  };
 
-  ];
 
- # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
 
   ############################################################################
   # Localisation
@@ -63,13 +76,16 @@
     options = "--delete-older-than 7d";
   };
 
-  nixpkgs.config.allowUnfree = true; # Allow unfree/proprietary packages.
-
   programs.nix-ld.enable = true;
+  
+  nixpkgs.config = {
+  	allowUnfree = true; # allow propietary packages
+	allowUnsupportedSystem = true; # potential instability
+  };
 
-  nixpkgs.config.allowUnsupportedSystem = true; # Scary
 
-  environment.sessionVariables.XDG_DATA_DIRS = [
+
+  environment.sessionVariables.XDG_DATA_DIRS = [ #temp firefox fix, delete me once ui works!
   "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/"
   "${pkgs.gtk3}/share/gsettings-schemas/"
   ];
@@ -93,14 +109,13 @@
     autoRepeatDelay = 200;
     autoRepeatInterval = 35;
 
-    # Configure keymap in X11.
     xkb = {
       layout = "us";
       variant = "";
     };
   };
 
-  services.desktopManager.plasma6.enable = true;
+ # services.desktopManager.plasma6.enable = true;
 
   services.displayManager.ly = {
     enable = true;
@@ -114,24 +129,18 @@
   ############################################################################
   hardware.graphics = {
     enable = true;
-    enable32Bit = true; # Needed for Steam/Proton.
+    enable32Bit = true; 
   };
 
-  # Load nvidia driver for Xorg and Wayland.
   services.xserver.videoDrivers = [ "nvidia" ];
 
   hardware.nvidia = {
-    # Modesetting is required.
     modesetting.enable = true;
 
-    # Use the open source kernel module (not to be confused with nouveau).
-    # Set to false for proprietary (recommended for gaming/RTX 4070).
-    open = true;
+    open = false;
 
-    # Enable nvidia-settings menu.
     nvidiaSettings = true;
 
-    # Pick a driver package - "stable" or "beta".
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
