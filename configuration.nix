@@ -69,6 +69,11 @@
 
   nixpkgs.config.allowUnsupportedSystem = true; # Scary
 
+  environment.sessionVariables.XDG_DATA_DIRS = [
+  "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/"
+  "${pkgs.gtk3}/share/gsettings-schemas/"
+  ];
+
   ############################################################################
   # Audio
   ############################################################################
@@ -121,7 +126,7 @@
 
     # Use the open source kernel module (not to be confused with nouveau).
     # Set to false for proprietary (recommended for gaming/RTX 4070).
-    open = false;
+    open = true;
 
     # Enable nvidia-settings menu.
     nvidiaSettings = true;
@@ -183,6 +188,7 @@
 
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
+    noto-fonts
   ];
 
   ############################################################################
