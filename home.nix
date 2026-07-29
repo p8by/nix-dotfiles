@@ -37,6 +37,7 @@
 		steam
 		fzf # fuzzy find
 		qutebrowser # keyboard based browser, vim like 
+		firefox
 		vesktop 
 		obsidian
 		audacious
@@ -70,6 +71,8 @@
 		ffmpeg
 		openssl
 		aria2
+
+		mesa-demos
 
 		appimage-run
 
