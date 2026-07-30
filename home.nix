@@ -41,7 +41,7 @@
 		vesktop 
 		obsidian
 		audacious
-		btop
+		htop
 		alvr
 		vlc
 		unrar #unzipping stuff
@@ -73,6 +73,7 @@
 		aria2
 
 		mesa-demos
+		dos2unix
 
 		appimage-run
 

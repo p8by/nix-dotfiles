@@ -77,18 +77,12 @@
   };
 
   programs.nix-ld.enable = true;
-  
+
   nixpkgs.config = {
   	allowUnfree = true; # allow propietary packages
 	allowUnsupportedSystem = true; # potential instability
   };
 
-
-
-  environment.sessionVariables.XDG_DATA_DIRS = [ #temp firefox fix, delete me once ui works!
-  "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/"
-  "${pkgs.gtk3}/share/gsettings-schemas/"
-  ];
 
   ############################################################################
   # Audio
@@ -129,7 +123,7 @@
   ############################################################################
   hardware.graphics = {
     enable = true;
-    enable32Bit = true; 
+    enable32Bit = true;
   };
 
   services.xserver.videoDrivers = [ "nvidia" ];
@@ -147,28 +141,107 @@
   ############################################################################
   # Applications
   ############################################################################
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-  };
+# programs.steam = {
+#   enable = true;
+#   remotePlay.openFirewall = true;
+#   dedicatedServer.openFirewall = true;
+# };
+# programs.neovim = {
+#   enable = true;
+#   configure = {
+#     customRC = ''
+#       set ai
+#       set number
+#       set relativenumber
+#     '';
+#   };
+# };
+#
+#programs.zsh = {
+# 	enable = true;
+#       enableCompletion = true;
+#       autosuggestions.enable = true;
+# };
 
-  programs.neovim = {
-    enable = true;
-    configure = {
-      customRC = ''
-        set ai
-        set number
-        set relativenumber
-      '';
-    };
-  };
- 
- programs.zsh = {
-  	enable = true;
-	enableCompletion = true;
-	autosuggestions.enable = true;
-  };
+programs = {
+        steam = {
+                enable = true;
+                remotePlay.openFirewall = true;
+                dedicatedServer.openFirewall = true;
+        };
+
+        neovim = {
+                enable = true;
+                configure = {
+                        customRC = ''
+                                set ai
+                                set number
+                                set relativenumber
+
+                                let g:lightline = { 'colorscheme': 'moonfly'}
+
+                                lua require("nvim-autopairs").setup({})
+                                lua require("nvim-treesitter").setup()
+
+                                colorscheme moonfly
+
+lua <<EOF
+                                local cmp = require("cmp")
+                                cmp.setup({
+                                  snippet = {
+                                    expand = function(args)
+                                      require("luasnip").lsp_expand(args.body)
+                                    end,
+                                  },
+                                  mapping = cmp.mapping.preset.insert({
+                                    ["<C-Space>"] = cmp.mapping.complete(),
+                                    ["<CR>"] = cmp.mapping.confirm({ select = true }),
+                                    ["<Tab>"] = cmp.mapping.select_next_item(),
+                                    ["<S-Tab>"] = cmp.mapping.select_prev_item(),
+                                  }),
+                                  sources = {
+                                    { name = "nvim_lsp" },
+                                    { name = "luasnip" },
+                                  },
+                                })
+                                local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+                                vim.lsp.config("nixd", { capabilities = capabilities})
+                                vim.lsp.enable("nixd")
+
+                                vim.lsp.config("pyright", { capabilities = capabilities})
+                                vim.lsp.enable("pyright")
+
+                                vim.api.nvim_create_autocmd("LspAttach", {
+                                  callback = function(args)
+                                    vim.lsp.completion.enable(true, args.data.client_id, args.buf, { autotrigger = true })
+                                  end,
+                                })
+EOF
+                        '';
+
+                        packages.package = {
+                                start = with pkgs.vimPlugins; [
+                                        nvim-autopairs
+                                        nvim-treesitter.withAllGrammars
+                                        lightline-vim
+                                        vim-moonfly-colors
+                                        nvim-lspconfig
+                                        nvim-cmp
+                                        cmp-nvim-lsp
+                                        luasnip
+                                        cmp_luasnip
+                                ];
+                        };
+                };
+        };
+        zsh = {
+                enable = true;
+                enableCompletion = true;
+                autosuggestions.enable = true;
+        };
+
+   };
 
   ############################################################################
   # Users
@@ -182,18 +255,20 @@
       tree
     ];
   };
-  
+
   users.users.dexter.shell = pkgs.zsh;
-  
+
   ############################################################################
-  # Packages (can be used as root)
+  # Root packages
   ############################################################################
   environment.systemPackages = with pkgs; [
     vim
     wget
     protonup-qt
+    nixd #lang server for nvim
+    pyright #python lang server for nvim
   ];
- 
+
 
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
