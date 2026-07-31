@@ -141,28 +141,6 @@
   ############################################################################
   # Applications
   ############################################################################
-# programs.steam = {
-#   enable = true;
-#   remotePlay.openFirewall = true;
-#   dedicatedServer.openFirewall = true;
-# };
-# programs.neovim = {
-#   enable = true;
-#   configure = {
-#     customRC = ''
-#       set ai
-#       set number
-#       set relativenumber
-#     '';
-#   };
-# };
-#
-#programs.zsh = {
-# 	enable = true;
-#       enableCompletion = true;
-#       autosuggestions.enable = true;
-# };
-
 programs = {
         steam = {
                 enable = true;
@@ -177,13 +155,16 @@ programs = {
                                 set ai
                                 set number
                                 set relativenumber
+				set shiftwidth=2
 
                                 let g:lightline = { 'colorscheme': 'moonfly'}
 
-                                lua require("nvim-autopairs").setup({})
-                                lua require("nvim-treesitter").setup()
 
                                 colorscheme moonfly
+
+                                lua require("nvim-autopairs").setup({})
+                                lua require("nvim-treesitter").setup()
+				lua require("hlchunk").setup({ chunk = { enable = true }, indent = { enable = true } })
 
 lua <<EOF
                                 local cmp = require("cmp")
@@ -231,6 +212,7 @@ EOF
                                         cmp-nvim-lsp
                                         luasnip
                                         cmp_luasnip
+					hlchunk-nvim
                                 ];
                         };
                 };
