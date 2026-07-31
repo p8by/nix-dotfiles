@@ -53,15 +53,15 @@
 
   i18n.defaultLocale = "en_GB.UTF-8";
   i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_GB.UTF-8";
-    LC_IDENTIFICATION = "en_GB.UTF-8";
-    LC_MEASUREMENT = "en_GB.UTF-8";
-    LC_MONETARY = "en_GB.UTF-8";
-    LC_NAME = "en_GB.UTF-8";
-    LC_NUMERIC = "en_GB.UTF-8";
-    LC_PAPER = "en_GB.UTF-8";
-    LC_TELEPHONE = "en_GB.UTF-8";
-    LC_TIME = "en_GB.UTF-8";
+	LC_ADDRESS = "en_GB.UTF-8";
+	LC_IDENTIFICATION = "en_GB.UTF-8";
+   	LC_MEASUREMENT = "en_GB.UTF-8";
+   	LC_MONETARY = "en_GB.UTF-8";
+   	LC_NAME = "en_GB.UTF-8";
+   	LC_NUMERIC = "en_GB.UTF-8";
+   	LC_PAPER = "en_GB.UTF-8";
+   	LC_TELEPHONE = "en_GB.UTF-8";
+   	LC_TIME = "en_GB.UTF-8";
   };
 
   ############################################################################
@@ -71,9 +71,9 @@
 
   # Delete rollbacks/generations older than 7 days.
   nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 7d";
+   	automatic = true;
+	dates = "weekly";
+   	options = "--delete-older-than 7d";
   };
 
   programs.nix-ld.enable = true;
@@ -89,59 +89,56 @@
   ############################################################################
   security.rtkit.enable = true;
   services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
+   	enable = true;
+   	alsa.enable = true;
+   	alsa.support32Bit = true;
+    	pulse.enable = true;
   };
 
   ############################################################################
   # Desktop / Display
   ############################################################################
   services.xserver = {
-    enable = true;
-    autoRepeatDelay = 200;
-    autoRepeatInterval = 35;
+	enable = true;
+   	autoRepeatDelay = 200;
+   	autoRepeatInterval = 35;
 
-    xkb = {
-      layout = "us";
-      variant = "";
-    };
+   	xkb = {
+   	  layout = "us";
+   	  variant = "";
+   	};
   };
 
   services.desktopManager.plasma6.enable = true; #NOT the login screen
 
   services.displayManager.ly = {
-    enable = true;
-    settings = {
-      animation = "gameoflife";
-    };
+   	enable = true;
+   	settings = {
+   	  animation = "gameoflife";
+   	};
   };
 
   ############################################################################
   # Graphics / NVIDIA
   ############################################################################
   hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
+    	enable = true;
+	enable32Bit = true;
   };
 
   services.xserver.videoDrivers = [ "nvidia" ];
 
   hardware.nvidia = {
-    modesetting.enable = true;
-
-    open = false;
-
-    nvidiaSettings = true;
-
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+	modesetting.enable = true;
+	open = false;
+	nvidiaSettings = true;
+	package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
   ############################################################################
   # Applications
   ############################################################################
-programs = {
+  programs = {
         steam = {
                 enable = true;
                 remotePlay.openFirewall = true;
@@ -155,7 +152,6 @@ programs = {
                                 set ai
                                 set number
                                 set relativenumber
-				set shiftwidth=2
 
                                 let g:lightline = { 'colorscheme': 'moonfly'}
 
@@ -176,7 +172,7 @@ lua <<EOF
                                   },
                                   mapping = cmp.mapping.preset.insert({
                                     ["<C-Space>"] = cmp.mapping.complete(),
-                                    ["<CR>"] = cmp.mapping.confirm({ select = true }),
+                                    ["<CR>"] = cmp.mapping.confirm({ select = false }),
                                     ["<Tab>"] = cmp.mapping.select_next_item(),
                                     ["<S-Tab>"] = cmp.mapping.select_prev_item(),
                                   }),
@@ -193,11 +189,9 @@ lua <<EOF
                                 vim.lsp.config("pyright", { capabilities = capabilities})
                                 vim.lsp.enable("pyright")
 
-                                vim.api.nvim_create_autocmd("LspAttach", {
-                                  callback = function(args)
-                                    vim.lsp.completion.enable(true, args.data.client_id, args.buf, { autotrigger = true })
-                                  end,
-                                })
+                                vim.lsp.config("clangd", { capabilities = capabilities})
+                                vim.lsp.enable("clangd")
+
 EOF
                         '';
 
@@ -230,12 +224,12 @@ EOF
   ############################################################################
   # remember to set up account with passwd
   users.users."dexter" = {
-    isNormalUser = true;
-    description = "dexter";
-    extraGroups = [ "input" "networkmanager" "wheel" "video" "audio" ];
-    packages = with pkgs; [
-      tree
-    ];
+   	isNormalUser = true;
+   	description = "dexter";
+   	extraGroups = [ "input" "networkmanager" "wheel" "video" "audio" ];
+   	packages = with pkgs; [
+   	  tree
+   	];
   };
 
   users.users.dexter.shell = pkgs.zsh;
@@ -244,17 +238,17 @@ EOF
   # Root packages
   ############################################################################
   environment.systemPackages = with pkgs; [
-    vim
-    wget
-    protonup-qt
-    nixd #lang server for nvim
-    pyright #python lang server for nvim
+   	vim
+   	wget
+   	protonup-qt
+   	nixd #lang server for nvim
+   	pyright #python lang server for nvim
   ];
 
 
   fonts.packages = with pkgs; [
-    nerd-fonts.jetbrains-mono
-    noto-fonts
+	nerd-fonts.jetbrains-mono
+	noto-fonts
   ];
 
   ############################################################################

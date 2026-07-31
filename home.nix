@@ -66,7 +66,9 @@
 	#####################################################
 		
 		python3
-
+		clang
+		clang-tools
+		
 		mpv
 		ffmpeg
 		openssl
@@ -82,12 +84,9 @@
 		mergerfs
 		mergerfs-tools
 
-		#Important, do not delete under any circumstances
 		ripgrep
 		nil
 		nixpkgs-fmt
-		gcc
-		#End
 
 	#####################################################
 	#		    FONTS
