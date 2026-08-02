@@ -28,6 +28,11 @@
 		config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles/dotfiles/starship/starship.toml";
 	xdg.configFile."fastfetch/config.jsonc".source =
 		config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles/dotfiles/fastfetch/config.jsonc";
+	
+	#this is here to get ani-cli to the latest
+	imports = [ ./modules/ani-cli.nix ];
+	myModules.ani-cli-latest.enable = true;
+
 	home.packages = with pkgs; [
 	#####################################################
 	# 		GENERAL PROGRAM
@@ -48,7 +53,6 @@
 		p7zip-rar # ditto ^
 		kdePackages.kcalc #calculator
 		qbittorrent		
-		ani-cli #anime scraper
 		yt-dlp
 		feh
 		cava

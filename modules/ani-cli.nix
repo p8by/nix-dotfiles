@@ -11,13 +11,13 @@ let
       owner = "pystardust";
       repo = "ani-cli";
       tag = "v${version}";
-      hash = "985716cd7ca1a27031f2db8adc9d99addbf3eb56d25cb35f8ea23f93081476f8";
+      hash = "sha256-rRQESi0Skoyf1jy/dRRK6ooKRPQhkak107kk5ulwZYI=";
     };
   });
 in
 {
   options.myModules.ani-cli-latest = {
-    enable = mkEnableOption;
+    enable = mkEnableOption "latest ani-cli";
   };
 
   config = mkIf cfg.enable {
