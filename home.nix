@@ -12,7 +12,7 @@
 	programs.zsh = {
 		enable = true;
 		shellAliases = {
-			nrs = "sudo nixos-rebuild switch --flake ~/nixos-dotfiles#nixos";
+			nrs = "sudo nixos-rebuild switch --flake ~/nixos-dotfiles#nixos --impure";
 			ehome = "sudo nvim ~/nixos-dotfiles/home.nix";
 			econf = "sudo nvim ~/nixos-dotfiles/configuration.nix";
 			eflake = "sudo nvim ~/nixos-dotfiles/flake.nix";
@@ -59,6 +59,7 @@
 		lazygit
 		senpai #irc terminal client
 		soju # irc bouncer
+		plover #steno software
 
 		virt-manager
 		libvirt
