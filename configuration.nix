@@ -98,43 +98,77 @@
   ############################################################################
   # Desktop / Display
   ############################################################################
-  services.xserver = {
-	enable = true;
-   	autoRepeatDelay = 200;
-   	autoRepeatInterval = 35;
+# services.xserver = {
+#       enable = true;
+#  	autoRepeatDelay = 200;
+#  	autoRepeatInterval = 35;
 
-   	xkb = {
-   	  layout = "us";
-   	  variant = "";
-   	};
+#  	xkb = {
+#  	  layout = "us";
+#  	  variant = "";
+#  	};
+# };
+
+# services.desktopManager.plasma6.enable = true; #NOT the login screen
+
+# services.displayManager.ly = {
+#  	enable = true;
+#  	settings = {
+#  	  animation = "gameoflife";
+#  	};
+# };
+  services = {
+	xserver ={
+		enable = true;
+		autoRepeatDelay = 200;
+		autoRepeatInterval = 35;
+
+		xkb = {
+			layout = "us";
+			variant = "";
+		};
+	};
+	
+	displayManager.ly = {
+		enable = true;
+		settings = {
+			animation = "gameoflife";
+		};
+	};
+
+	desktopManager = {
+		plasma6.enable = true;
+	};
   };
-
-  services.desktopManager.plasma6.enable = true; #NOT the login screen
-
-  services.displayManager.ly = {
-   	enable = true;
-   	settings = {
-   	  animation = "gameoflife";
-   	};
-  };
-
   ############################################################################
   # Graphics / NVIDIA
   ############################################################################
-  hardware.graphics = {
-    	enable = true;
-	enable32Bit = true;
-  };
+# hardware.graphics = {
+#   	enable = true;
+#       enable32Bit = true;
+# };
+
+# hardware.nvidia = {
+#       modesetting.enable = true;
+#       open = false;
+#       nvidiaSettings = true;
+#       package = config.boot.kernelPackages.nvidiaPackages.stable;
+# };
 
   services.xserver.videoDrivers = [ "nvidia" ];
-
-  hardware.nvidia = {
-	modesetting.enable = true;
-	open = false;
-	nvidiaSettings = true;
-	package = config.boot.kernelPackages.nvidiaPackages.stable;
+  hardware = {
+	graphics = {
+		enable = true;
+		enable32Bit = true;
+	};
+	nvidia = {
+		modesetting.enable = true;
+		open = false;
+		nvidiaSettings = true;
+		package = config.boot.kernelPackages.nvidiaPackages.stable;
+	};
+	uinput.enable = true;
   };
-
   ############################################################################
   # Applications
   ############################################################################
@@ -226,7 +260,7 @@ EOF
   users.users."dexter" = {
    	isNormalUser = true;
    	description = "dexter";
-   	extraGroups = [ "input" "networkmanager" "wheel" "video" "audio" ];
+   	extraGroups = [ "uinput" "input" "networkmanager" "wheel" "video" "audio" "dialout" ];
    	packages = with pkgs; [
    	  tree
    	];

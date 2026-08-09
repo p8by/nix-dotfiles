@@ -12,7 +12,7 @@
 	programs.zsh = {
 		enable = true;
 		shellAliases = {
-			nrs = "sudo nixos-rebuild switch --flake ~/nixos-dotfiles#nixos --impure";
+			nrs = "sudo nixos-rebuild switch --flake ~/nixos-dotfiles#nixos";
 			ehome = "sudo nvim ~/nixos-dotfiles/home.nix";
 			econf = "sudo nvim ~/nixos-dotfiles/configuration.nix";
 			eflake = "sudo nvim ~/nixos-dotfiles/flake.nix";
@@ -23,7 +23,6 @@
 			eval "$(${pkgs.starship}/bin/starship init zsh)"
 		'';
 	};
-
 	xdg.configFile."starship.toml".source =
 		config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles/dotfiles/starship/starship.toml";
 	xdg.configFile."fastfetch/config.jsonc".source =
@@ -45,7 +44,7 @@
 		firefox
 		vesktop 
 		obsidian
-		audacious
+		deadbeef
 		htop
 		alvr
 		vlc
@@ -86,6 +85,9 @@
 
 		pkgsCross.mingwW64.buildPackages.gcc
 		
+		libxkbcommon
+		libdbusmenu
+
 		mergerfs
 		mergerfs-tools
 
@@ -99,7 +101,6 @@
 		nerd-fonts.hack
 		nerd-fonts.fira-code
 		font-awesome
-
 	];
 
 }
