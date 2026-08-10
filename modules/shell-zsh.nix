@@ -14,8 +14,8 @@
         nrs = "sudo nixos-rebuild switch --flake ~/nixos-dotfiles#nixos";
         eflake = "sudo nvim ~/nixos-dotfiles/flake.nix";
         usys = "cd ~/nixos-dotfiles && nix flake update && echo run nrs now && cd -";
-	emod = "cd ~/nixos-dotfiles/modules"
-	ehost = "sudo nvim ~/nixos-dotfiles/hosts/nixos.nix"
+	cmod = "cd ~/nixos-dotfiles/modules";
+	ehost = "sudo nvim ~/nixos-dotfiles/modules/hosts/nixos.nix";
       };
       initContent = ''
         eval "$(${pkgs.starship}/bin/starship init zsh)"
