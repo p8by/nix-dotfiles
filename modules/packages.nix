@@ -28,6 +28,7 @@
 		cava
 		lazygit
 		plover #steno software
+		senpai
 		
 
 		virt-manager
