@@ -4,7 +4,7 @@
     home.homeDirectory = "/home/dexter";
     home.stateVersion = "26.05";
     home.packages = with pkgs; [
-        #####################################################
+  #####################################################
 	# 		GENERAL PROGRAMS
 	#####################################################
 		fastfetch
@@ -27,9 +27,8 @@
 		feh
 		cava
 		lazygit
-		senpai #irc terminal client
-		soju # irc bouncer
 		plover #steno software
+		
 
 		virt-manager
 		libvirt
