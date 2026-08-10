@@ -82,7 +82,13 @@
   	allowUnfree = true; # allow propietary packages
 	allowUnsupportedSystem = true; # potential instability
   };
-
+  
+  swapDevices = [
+  	{
+	device = "/var/lib/swapfile";
+	size = 32768;
+	}
+  ];
 
   ############################################################################
   # Audio
@@ -98,25 +104,6 @@
   ############################################################################
   # Desktop / Display
   ############################################################################
-# services.xserver = {
-#       enable = true;
-#  	autoRepeatDelay = 200;
-#  	autoRepeatInterval = 35;
-
-#  	xkb = {
-#  	  layout = "us";
-#  	  variant = "";
-#  	};
-# };
-
-# services.desktopManager.plasma6.enable = true; #NOT the login screen
-
-# services.displayManager.ly = {
-#  	enable = true;
-#  	settings = {
-#  	  animation = "gameoflife";
-#  	};
-# };
   services = {
 	xserver ={
 		enable = true;
@@ -143,18 +130,6 @@
   ############################################################################
   # Graphics / NVIDIA
   ############################################################################
-# hardware.graphics = {
-#   	enable = true;
-#       enable32Bit = true;
-# };
-
-# hardware.nvidia = {
-#       modesetting.enable = true;
-#       open = false;
-#       nvidiaSettings = true;
-#       package = config.boot.kernelPackages.nvidiaPackages.stable;
-# };
-
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware = {
 	graphics = {
