@@ -15,6 +15,7 @@
       config.flake.modules.nixos.users
       config.flake.modules.nixos.fonts
       config.flake.modules.nixos.hardware
+      config.flake.modules.nixos.printer
       inputs.home-manager.nixosModules.home-manager
       {
         home-manager = {
