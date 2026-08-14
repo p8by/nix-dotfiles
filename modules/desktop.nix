@@ -6,6 +6,9 @@
       autoRepeatInterval = 35;
       xkb.layout = "us";
       xkb.variant = "";
+      #desktops etc
+      windowManager = {
+      };
     };
     services.displayManager.ly = {
       enable = true;

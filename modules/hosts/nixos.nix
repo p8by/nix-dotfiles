@@ -5,6 +5,7 @@
     modules = [
       config.flake.modules.nixos.boot
       config.flake.modules.nixos.networking
+      config.flake.modules.nixos.swap
       config.flake.modules.nixos.localisation
       config.flake.modules.nixos.nix-settings
       config.flake.modules.nixos.audio
@@ -16,6 +17,7 @@
       config.flake.modules.nixos.fonts
       config.flake.modules.nixos.hardware
       config.flake.modules.nixos.printer
+      config.flake.modules.nixos.mergerfs
       inputs.home-manager.nixosModules.home-manager
       {
         home-manager = {

@@ -8,9 +8,12 @@
           set ai
           set number
           set relativenumber
-	  set shiftwidth=2
-	  set tabstop=2
-	  set completeopt=menu,menuone,noselect
+          set shiftwidth=2
+          set tabstop=2
+          set softtabstop=2
+          set expandtab
+          set smarttab
+          set completeopt=menu,menuone,noselect
           let g:lightline = { 'colorscheme': 'moonfly'}
           colorscheme moonfly
           lua require("nvim-autopairs").setup({})

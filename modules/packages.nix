@@ -59,8 +59,6 @@
 		libxkbcommon
 		libdbusmenu
 
-		mergerfs
-		mergerfs-tools
 
 		ripgrep
 		nil
