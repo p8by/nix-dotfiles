@@ -9,7 +9,6 @@
 	#####################################################
 		fastfetch
 		starship
-		steam
 		fzf # fuzzy find
 		qutebrowser # keyboard based browser, vim like 
 		firefox

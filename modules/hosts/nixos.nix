@@ -18,6 +18,7 @@
       config.flake.modules.nixos.hardware
       config.flake.modules.nixos.printer
       config.flake.modules.nixos.mergerfs
+      config.flake.modules.nixos.steam
       inputs.home-manager.nixosModules.home-manager
       {
         home-manager = {
@@ -30,6 +31,7 @@
             config.flake.modules.homeManager.dotfiles
             config.flake.modules.homeManager.packages
             config.flake.modules.homeManager.ani-cli
+            config.flake.modules.homeManager.steam-openxr
             { myModules.ani-cli-latest.enable = true; }
           ];
         };
