@@ -8,6 +8,8 @@
     };
     flake-parts.url = "github:hercules-ci/flake-parts";
     import-tree.url = "github:vic/import-tree";
+    ##########################################################
+    #fetch.url = "github:areofyl/fetch"; example for note, please replace me!
   };
 
   outputs = inputs:

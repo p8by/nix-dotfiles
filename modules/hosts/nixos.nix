@@ -24,6 +24,7 @@
         home-manager = {
           useGlobalPkgs = true;
           useUserPackages = true;
+          extraSpecialArgs = { inherit inputs; };
           backupFileExtension = "backup";
           users.dexter.imports = [
             config.flake.modules.homeManager.git

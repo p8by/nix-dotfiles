@@ -1,12 +1,10 @@
 {
-  flake.modules.homeManager.packages = { pkgs, ... }: {
+  flake.modules.homeManager.packages = { pkgs, inputs, ... }: {
     home.username = "dexter";
     home.homeDirectory = "/home/dexter";
     home.stateVersion = "26.05";
     home.packages = with pkgs; [
-  #####################################################
-	# 		GENERAL PROGRAMS
-	#####################################################
+	#### GENERAL ####
 		fastfetch
 		starship
 		fzf # fuzzy find
@@ -23,7 +21,6 @@
 		kdePackages.kcalc #calculator
 		qbittorrent		
 		yt-dlp
-		feh
 		cava
 		lazygit
 		plover #steno software
@@ -35,9 +32,7 @@
 		wineWow64Packages.base
 		winetricks
 		qemu
-	#####################################################
-	#	         SYSTEM/PROG LANG
-	#####################################################
+    #### SYSTEM ####
 		
 		python3
 		clang
@@ -63,12 +58,13 @@
 		nil
 		nixpkgs-fmt
 
-	#####################################################
-	#		    FONTS
-	#####################################################
+	#### FONTS ####
 		nerd-fonts.hack
 		nerd-fonts.fira-code
 		font-awesome
+
+  #### EXTERNAL ####
+  #inputs.fetch.packages.${pkgs.system}.default kept for reference, please replace me!
 	];
    };
 }
