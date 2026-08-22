@@ -25,6 +25,7 @@
 		lazygit
 		plover #steno software
 		senpai
+    obs-studio
 		
 
 		virt-manager
