@@ -19,6 +19,7 @@
       config.flake.modules.nixos.printer
       config.flake.modules.nixos.mergerfs
       config.flake.modules.nixos.steam
+      config.flake.modules.nixos.ollama
       inputs.home-manager.nixosModules.home-manager
       {
         home-manager = {
