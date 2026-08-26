@@ -14,8 +14,9 @@
           set expandtab
           set smarttab
           set completeopt=menu,menuone,noselect
-          let g:lightline = { 'colorscheme': 'moonfly'}
-          colorscheme moonfly
+          set background=dark
+          let g:lightline = { 'colorscheme': 'solarized'}
+          colorscheme gruvbox
           lua require("nvim-autopairs").setup({})
           lua require("nvim-treesitter").setup()
           lua require("hlchunk").setup({ chunk = { enable = true }, indent = { enable = true } })
@@ -51,7 +52,7 @@ EOF
           nvim-autopairs
           nvim-treesitter.withAllGrammars
           lightline-vim
-          vim-moonfly-colors
+          gruvbox-nvim
           nvim-lspconfig
           nvim-cmp
           cmp-nvim-lsp

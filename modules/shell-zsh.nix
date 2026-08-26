@@ -21,5 +21,9 @@
         eval "$(${pkgs.starship}/bin/starship init zsh)"
       '';
     };
+    home.sessionVariables = {
+      WINEPREFIX = "$HOME/.prefixname";
+      WINEARCH = "win64";
+    };
   };
 }
