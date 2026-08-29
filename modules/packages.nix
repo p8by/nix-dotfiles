@@ -26,6 +26,10 @@
 		plover #steno software
 		senpai
     obs-studio
+    thcrap-steam-proton-wrapper
+    unzip
+    evtest
+    python3Packages.evdev
 		
 
 		virt-manager
