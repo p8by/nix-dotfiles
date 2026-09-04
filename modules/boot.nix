@@ -8,6 +8,7 @@
         memtest86.enable = true;
         device = "nodev"; #nodev is used for efi
         efiSupport = true;
+        useOSProber = true;
       };
     };
   };

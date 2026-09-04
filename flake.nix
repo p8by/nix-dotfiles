@@ -12,7 +12,7 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
     import-tree.url = "github:vic/import-tree";
     ##########################################################
-    #fetch.url = "github:areofyl/fetch"; example for note, please replace me!
+    tag.url = "github:p8by/CLI-album-art-tagger";
   };
 
   outputs = inputs:

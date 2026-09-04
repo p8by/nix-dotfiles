@@ -14,22 +14,21 @@
 		obsidian
 		deadbeef
 		htop
-		alvr
 		vlc
 		unrar #unzipping stuff
 		p7zip-rar # ditto ^
 		kdePackages.kcalc #calculator
 		qbittorrent		
 		yt-dlp
-		cava
 		lazygit
 		plover #steno software
 		senpai
     obs-studio
     thcrap-steam-proton-wrapper
     unzip
-    evtest
     python3Packages.evdev
+    yazi #cli file mananger
+    prismlauncher
 		
 
 		virt-manager
@@ -69,7 +68,7 @@
 		font-awesome
 
   #### EXTERNAL ####
-  #inputs.fetch.packages.${pkgs.system}.default kept for reference, please replace me!
+  inputs.tag.packages.${pkgs.system}.default
 	];
    };
 }
