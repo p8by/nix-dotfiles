@@ -2,6 +2,7 @@
   flake.modules.nixos.printer = { pkgs , ... }:{
     services.printing = {
       enable = true;
+      openFirewall = true;
       drivers = with pkgs; [
         cups-filters
         cups-browsed

@@ -31,11 +31,8 @@
     prismlauncher
 		
 
-		virt-manager
-		libvirt
 		wineWow64Packages.base
 		winetricks
-		qemu
     #### SYSTEM ####
 		
 		python3
