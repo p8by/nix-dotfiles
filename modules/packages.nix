@@ -29,7 +29,6 @@
     python3Packages.evdev
     yazi #cli file mananger
     prismlauncher
-		
 
 		wineWow64Packages.base
 		winetricks
