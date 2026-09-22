@@ -1,0 +1,73 @@
+# https://malbiruk.github.io/driftwm/config.html
+mod_key = "super"
+
+focus_follows_mouse = false
+window_placement = "center"
+
+autostart = [
+    "waybar"
+]
+
+[session]
+restore_windows = false
+restore_camera = false
+
+[navigation]
+trackpad_speed = 1.5
+mouse_speed = 1.0
+drift = 0.1
+camera_speed = 0.3
+auto_navigate_on_close = true
+
+[background]
+type = "wallpaper"
+path = "~/nixos-dotfiles/Wallpapers/clouds.jpg"
+
+[decorations]
+corner_radius = 0
+shadow = false
+default_mode = "client"
+
+
+
+[keybindings]
+"mod+t" = "exec konsole"
+"mod+space" = "exec wofi"
+"mod+tab" = "exec firefox"
+"mod+shift+s" = "exec scrot"
+"mod+q" = "close-window"
+"mod+f" = "toggle-fullscreen"
+"mod+m" = "fit-window"
+"mod+c" = "center-window"
+
+"mod+w" = "center-nearest up"
+"mod+s" = "center-nearest down"
+"mod+a" = "center-nearest left"
+"mod+d" = "center-nearest right"
+
+"mod+ctrl+w" = "nudge-window up"
+"mod+ctrl+s" = "nudge-window down"
+"mod+ctrl+a" = "nudge-window left"
+"mod+ctrl+d" = "nudge-window right"
+
+"mod+1" = "go-to-bookmark 1"
+"mod+2" = "go-to-bookmark 2"
+"mod+3" = "go-to-bookmark 3"
+"mod+4" = "go-to-bookmark 4"
+
+"mod+shift+1" = "set-bookmark 1"
+"mod+shift+2" = "set-bookmark 2"
+"mod+shift+3" = "set-bookmark 3"
+"mod+shift+4" = "set-bookmark 4"
+
+"mod+ctrl+shift+q" = "quit"
+
+[[outputs]]
+name = "DP-2"
+transform = "90"
+position = "auto"
+mode = "3440x1440"
+
+[[outputs]]
+name = "DP-3"
+mode = "3440x1440@100"

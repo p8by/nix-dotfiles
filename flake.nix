@@ -13,6 +13,7 @@
     import-tree.url = "github:vic/import-tree";
     ##########################################################
     tag.url = "github:p8by/CLI-album-art-tagger";
+    driftwm.url = "github:malbiruk/driftwm";
   };
 
   outputs = inputs:

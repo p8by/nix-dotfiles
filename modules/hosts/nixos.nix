@@ -21,6 +21,7 @@
       config.flake.modules.nixos.steam
 #      config.flake.modules.nixos.ollama
       config.flake.modules.nixos.thrustmaster-mfd
+      config.flake.modules.nixos.driftwm
       inputs.home-manager.nixosModules.home-manager
       {
         home-manager = {

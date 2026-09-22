@@ -4,25 +4,25 @@
     home.homeDirectory = "/home/dexter";
     home.stateVersion = "26.05";
     home.packages = with pkgs; [
-	#### GENERAL ####
-		fastfetch
-		starship
-		fzf # fuzzy find
-		qutebrowser # keyboard based browser, vim like 
-		firefox
-		vesktop 
-		obsidian
-		deadbeef
-		htop
-		vlc
-		unrar #unzipping stuff
-		p7zip-rar # ditto ^
-		kdePackages.kcalc #calculator
-		qbittorrent		
-		yt-dlp
-		lazygit
-		plover #steno software
-		senpai
+  #### GENERAL ####
+    fastfetch
+    starship
+    fzf # fuzzy find
+    qutebrowser # keyboard based browser, vim like 
+    firefox
+    vesktop 
+    obsidian
+    deadbeef
+    htop
+    vlc
+    unrar #unzipping stuff
+    p7zip-rar # ditto ^
+    kdePackages.kcalc #calculator
+    qbittorrent   
+    yt-dlp
+    lazygit
+    plover #steno software
+    senpai
     obs-studio
     thcrap-steam-proton-wrapper
     unzip
@@ -30,41 +30,47 @@
     yazi #cli file mananger
     prismlauncher
 
-		wineWow64Packages.base
-		winetricks
+    #stuff for wm
+    wofi
+    waybar
+    scrot
+    feh
+    ###
+
+    wineWow64Packages.base
+    winetricks
     #### SYSTEM ####
-		
-		python3
-		clang
-		clang-tools
-		
-		mpv
-		ffmpeg
-		openssl
-		aria2
+    
+    python3
+    clang
+    clang-tools
+    
+    mpv
+    ffmpeg
+    openssl
+    aria2
 
-		mesa-demos
-		dos2unix
+    mesa-demos
 
-		appimage-run
+    appimage-run
 
-		pkgsCross.mingwW64.buildPackages.gcc
-		
-		libxkbcommon
-		libdbusmenu
+    pkgsCross.mingwW64.buildPackages.gcc
+    
+    libxkbcommon
+    libdbusmenu
 
 
-		ripgrep
-		nil
-		nixpkgs-fmt
+    ripgrep
+    nil
+    nixpkgs-fmt
 
-	#### FONTS ####
-		nerd-fonts.hack
-		nerd-fonts.fira-code
-		font-awesome
+  #### FONTS ####
+    nerd-fonts.hack
+    nerd-fonts.fira-code
+    font-awesome
 
   #### EXTERNAL ####
   inputs.tag.packages.${pkgs.system}.default
-	];
+  ];
    };
 }
