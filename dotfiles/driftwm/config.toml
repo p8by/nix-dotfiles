@@ -4,13 +4,13 @@ mod_key = "super"
 focus_follows_mouse = true
 window_placement = "center"
 
-autostart = [
-    "waybar"
-]
+autostart = [ "waybar" , "mako" ] 
 
 [session]
 restore_windows = false
 restore_camera = false
+[xwayland]
+enabled = true
 
 [navigation]
 trackpad_speed = 1.5
@@ -26,16 +26,19 @@ path = "~/nixos-dotfiles/Wallpapers/clouds.jpg"
 [decorations]
 corner_radius = 0
 shadow = false
-default_mode = "client"
+default_mode = "minimal"
 opacity = 0.75
 blur = true
 
+[snap]
+enabled = false
+
 
 [keybindings]
-"mod+t" = "exec konsole"
+"mod+t" = "exec kitty"
 "mod+return" = "exec wofi"
 "mod+tab" = "exec firefox"
-"mod+shift+s" = "exec scrot"
+"mod+shift+s" = "exec grim"
 "mod+q" = "close-window"
 "mod+f" = "toggle-fullscreen"
 "mod+m" = "fit-window"
@@ -75,8 +78,9 @@ blur = true
 [[outputs]]
 name = "DP-2"
 transform = "90"
-position = "auto"
+position = [0, -1550]
 mode = "3440x1440"
+focus_placement = "left"
 
 [[outputs]]
 name = "DP-3"

@@ -14,5 +14,7 @@
       config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles/dotfiles/waybar/config.jsonc";
     xdg.configFile."waybar/style.css".source =
       config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles/dotfiles/waybar/style.css";
+    xdg.configFile."kitty/kitty.conf".source =
+      config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles/dotfiles/kitty/kitty.conf";
   };
 }

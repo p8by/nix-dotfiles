@@ -4,7 +4,7 @@
     "height": 30,
     "spacing": 4,
 
-    "modules-left": ["custom/ip"],
+    "modules-left": ["custom/ip" , "network"],
     "modules-center": ["clock"],
     "modules-right": ["cpu", "memory", "pulseaudio", "custom/mic"],
 
@@ -13,6 +13,12 @@
         "interval": 30,
         "format": "\uf0ac  {}",
         "tooltip": false
+    },
+
+    "network": {
+    "interval": 2,
+    "format": "\uea9a {bandwidthDownBytes}  \ueaa1 {bandwidthUpBytes}",
+    "tooltip-format": "{ifname}: {ipaddr}/{cidr}"
     },
 
     "clock": {

@@ -29,13 +29,17 @@
     python3Packages.evdev
     yazi #cli file mananger
     prismlauncher
+    kitty
 
     #stuff for wm
     wofi
     waybar
-    scrot
     feh
+    grim
     playerctl
+    mako
+    cmus
+    xdg-desktop-portal-wlr
     ###
 
     wineWow64Packages.base

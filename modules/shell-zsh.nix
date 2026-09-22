@@ -24,6 +24,9 @@
     home.sessionVariables = {
       WINEPREFIX = "$HOME/.prefixname";
       WINEARCH = "win64";
+      TERMINAL = "kitty";
     };
+    xdg.terminal-exec.enable = true;
+    xdg.terminal-exec.settings.default = ["kitty.desktop"];
   };
 }
