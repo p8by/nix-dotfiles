@@ -35,6 +35,7 @@
     waybar
     scrot
     feh
+    playerctl
     ###
 
     wineWow64Packages.base

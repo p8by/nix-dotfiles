@@ -1,7 +1,7 @@
 # https://malbiruk.github.io/driftwm/config.html
 mod_key = "super"
 
-focus_follows_mouse = false
+focus_follows_mouse = true
 window_placement = "center"
 
 autostart = [
@@ -27,12 +27,13 @@ path = "~/nixos-dotfiles/Wallpapers/clouds.jpg"
 corner_radius = 0
 shadow = false
 default_mode = "client"
-
+opacity = 0.75
+blur = true
 
 
 [keybindings]
 "mod+t" = "exec konsole"
-"mod+space" = "exec wofi"
+"mod+return" = "exec wofi"
 "mod+tab" = "exec firefox"
 "mod+shift+s" = "exec scrot"
 "mod+q" = "close-window"
@@ -60,7 +61,16 @@ default_mode = "client"
 "mod+shift+3" = "set-bookmark 3"
 "mod+shift+4" = "set-bookmark 4"
 
+"XF86AudioPlay" = "exec playerctl play-pause"
+"XF86AudioNext" = "exec playerctl next"
+"XF86AudioPrev" = "exec playerctl previous"
+
 "mod+ctrl+shift+q" = "quit"
+
+[mouse.on-window]
+
+"mod+left" = "move-window"
+"mod+right" = "resize-window"
 
 [[outputs]]
 name = "DP-2"
