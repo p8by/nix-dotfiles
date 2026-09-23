@@ -15,11 +15,13 @@
           set smarttab
           set completeopt=menu,menuone,noselect
           set background=dark
+          set termguicolors
           let g:lightline = { 'colorscheme': 'solarized'}
           colorscheme gruvbox
           lua require("nvim-autopairs").setup({})
           lua require("nvim-treesitter").setup()
           lua require("hlchunk").setup({ chunk = { enable = true }, indent = { enable = true } })
+          lua require("nvim-highlight-colors").setup({ render = "background" })
           lua <<EOF
             local cmp = require("cmp")
             cmp.setup({
@@ -59,6 +61,7 @@ EOF
           luasnip
           cmp_luasnip
           hlchunk-nvim
+          nvim-highlight-colors
         ];
       };
     };

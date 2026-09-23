@@ -15,7 +15,7 @@ enabled = true
 [navigation]
 trackpad_speed = 1.5
 mouse_speed = 1.0
-drift = 0.1
+drift = 0.15
 camera_speed = 0.3
 auto_navigate_on_close = true
 
@@ -27,8 +27,8 @@ path = "~/nixos-dotfiles/Wallpapers/clouds.jpg"
 corner_radius = 0
 shadow = false
 default_mode = "minimal"
-opacity = 0.75
-blur = true
+opacity = 1.0
+blur = false
 
 [snap]
 enabled = false
@@ -38,7 +38,7 @@ enabled = false
 "mod+t" = "exec kitty"
 "mod+return" = "exec wofi"
 "mod+tab" = "exec firefox"
-"mod+shift+s" = "exec grim"
+"mod+shift+s" = "exec grim -g \"$(slurp)\" - | wl-copy"
 "mod+q" = "close-window"
 "mod+f" = "toggle-fullscreen"
 "mod+m" = "fit-window"
@@ -78,7 +78,7 @@ enabled = false
 [[outputs]]
 name = "DP-2"
 transform = "90"
-position = [0, -1550]
+position = [0, -1595]
 mode = "3440x1440"
 focus_placement = "left"
 

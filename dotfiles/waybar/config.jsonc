@@ -43,12 +43,14 @@
         "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
         "scroll-step": 5
     },
-
     "custom/mic": {
-        "exec": "wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | awk '{print int($2*100)\"%\"}'",
-        "interval": 5,
-        "format": "\uf130  {}",
-        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
-        "tooltip": false
+    "exec": "wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | awk '{print int($2*100)\"%\"}'",
+    "interval": 5,
+    "signal": 8,
+    "format": "\uf130  {}",
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+    "on-scroll-up": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SOURCE@ 5%+ && pkill -RTMIN+8 waybar",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%- && pkill -RTMIN+8 waybar",
+    "tooltip": false
     }
 }

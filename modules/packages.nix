@@ -34,11 +34,14 @@
     wofi
     waybar
     feh
-    grim
+    grim #screenshot tool
+    slurp #screenshot tool use together
+    wl-clipboard 
     playerctl
     mako
     cmus
     xdg-desktop-portal-wlr
+    pywal16
     ###
 
     wineWow64Packages.base

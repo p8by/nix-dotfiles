@@ -36,6 +36,7 @@
             config.flake.modules.homeManager.packages
             config.flake.modules.homeManager.ani-cli
             config.flake.modules.homeManager.steam-openxr
+            config.flake.modules.homeManager.hstat
             { myModules.ani-cli-latest.enable = true; }
           ];
         };
