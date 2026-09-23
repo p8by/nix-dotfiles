@@ -8,7 +8,6 @@
     fastfetch
     starship
     fzf # fuzzy find
-    qutebrowser # keyboard based browser, vim like 
     firefox
     vesktop 
     obsidian
@@ -50,7 +49,6 @@
     clang
     clang-tools
     
-    mpv
     ffmpeg
     openssl
     aria2
