@@ -29,6 +29,7 @@
     yazi #cli file mananger
     prismlauncher
     kitty
+    imagemagick
 
     #stuff for wm
     wofi
@@ -41,6 +42,7 @@
     mako
     cmus
     xdg-desktop-portal-wlr
+
     pywal16
     ###
 

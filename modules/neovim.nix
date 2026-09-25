@@ -17,7 +17,7 @@
           set background=dark
           set termguicolors
           let g:lightline = { 'colorscheme': 'solarized'}
-          colorscheme gruvbox
+          colorscheme wal
           lua require("nvim-autopairs").setup({})
           lua require("nvim-treesitter").setup()
           lua require("hlchunk").setup({ chunk = { enable = true }, indent = { enable = true } })
@@ -62,6 +62,7 @@ EOF
           cmp_luasnip
           hlchunk-nvim
           nvim-highlight-colors
+          wal-vim
         ];
       };
     };

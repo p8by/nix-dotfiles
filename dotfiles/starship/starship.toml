@@ -99,3 +99,4 @@ ssh_only = true
 style = "bg:#0a2540 fg:#eaf4ff"
 format = "[ $hostname ]($style)"
 disabled = true
+
