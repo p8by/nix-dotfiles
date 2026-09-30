@@ -24,12 +24,14 @@
     senpai
     obs-studio
     thcrap-steam-proton-wrapper
+    zip
     unzip
     python3Packages.evdev
     yazi #cli file mananger
     prismlauncher
     kitty
     imagemagick
+    davinci-resolve
 
     #stuff for wm
     wofi

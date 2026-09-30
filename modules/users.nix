@@ -7,6 +7,6 @@
       packages = [ pkgs.tree ];
       shell = pkgs.zsh;
     };
-    environment.systemPackages = with pkgs; [ vim wget protonup-qt ];
+    environment.systemPackages = with pkgs; [ vim wget];
   };
 }
