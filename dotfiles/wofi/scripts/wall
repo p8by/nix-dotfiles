@@ -2,9 +2,44 @@
 
 dir="$HOME/nixos-dotfiles/Wallpapers"
 state="$HOME/.cache/current-wallpaper"
+wal_sh="$HOME/.cache/wal/colors.sh"
+starship_cfg="$HOME/nixos-dotfiles/dotfiles/starship/starship.toml"
 
 menu() {
 	wofi --dmenu --insensitive --cache-file /dev/null "$@"
+}
+
+starship_palette() {
+	[ -f "$wal_sh" ] && [ -f "$starship_cfg" ] || return 0
+	grep -q '# >>> wal palette >>>' "$starship_cfg" || return 0
+	grep -q '# <<< wal palette <<<' "$starship_cfg" || return 0
+
+	local palfile tmp
+	palfile="$(mktemp)"
+	tmp="$(mktemp)"
+
+	(
+		. "$wal_sh"
+		printf '%s\n' \
+			"[palettes.wal]" \
+			"bg0 = \"$background\"" \
+			"bg1 = \"$color8\"" \
+			"bg2 = \"$color4\"" \
+			"bg3 = \"$color12\"" \
+			"fg = \"$foreground\"" \
+			"accent = \"$color14\""
+	) > "$palfile"
+
+	awk -v pf="$palfile" '
+		/# <<< wal palette <<</ { skip = 0 }
+		!skip { print }
+		/# >>> wal palette >>>/ {
+			skip = 1
+			while ((getline l < pf) > 0) print l
+		}
+	' "$starship_cfg" > "$tmp" && cat "$tmp" > "$starship_cfg"
+
+	rm -f "$palfile" "$tmp"
 }
 
 apply() {
@@ -12,7 +47,8 @@ apply() {
 	setsid swaybg -i "$1" -m fill >/dev/null 2>&1 &
 	sleep 0.3
 	[ -n "$old" ] && kill $old
-	wal -n -q -i "$1"
+	wal -n -q --saturate 0.4 -i "$1"
+	starship_palette
 	pkill -SIGUSR2 waybar || true
 	mkdir -p "$(dirname "$state")"
 	printf '%s' "$1" > "$state"
