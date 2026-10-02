@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+dir="$HOME/nixos-dotfiles/Wallpapers"
+state="$HOME/.cache/current-wallpaper"
+
+menu() {
+	wofi --dmenu --insensitive --cache-file /dev/null "$@"
+}
+
+apply() {
+	old="$(pgrep -x swaybg || true)"
+	setsid swaybg -i "$1" -m fill >/dev/null 2>&1 &
+	sleep 0.3
+	[ -n "$old" ] && kill $old
+	wal -n -q -i "$1"
+	pkill -SIGUSR2 waybar || true
+	mkdir -p "$(dirname "$state")"
+	printf '%s' "$1" > "$state"
+}
+
+if [ "${1:-}" = "restore" ]; then
+	[ -f "$state" ] && apply "$(cat "$state")"
+	exit 0
+fi
+
+file="$(find "$dir" -type f \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' -o -iname '*.webp' \) -printf '%P\n' | sort | menu --lines 10 --prompt "Wallpaper")"
+[ -z "$file" ] && exit 0
+apply "$dir/$file"

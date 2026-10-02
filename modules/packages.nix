@@ -44,8 +44,9 @@
     mako
     cmus
     xdg-desktop-portal-wlr
-
     pywal16
+    libqalculate #for wofi calc script
+    swaybg
     ###
 
     wineWow64Packages.base

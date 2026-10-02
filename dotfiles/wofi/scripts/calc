@@ -1,0 +1,13 @@
+menu() {
+	wofi --dmenu --insensitive --cache-file /dev/null "$@"
+}
+
+last=""
+while expr="$(printf '%s' "$last" | menu --lines 1 --prompt "Calc")"; do
+	[ -z "$expr" ] && exit 0
+	if [ "$expr" = "$last" ]; then
+		printf '%s' "$last" | wl-copy
+		exit 0
+	fi
+	last="$(qalc -t "$expr" 2>&1)"
+done

@@ -4,7 +4,7 @@ mod_key = "super"
 focus_follows_mouse = true
 window_placement = "center"
 
-autostart = [ "waybar" , "mako" ] 
+autostart = [ "waybar" , "mako", "~/nixos-dotfiles/dotfiles/wofi/scripts/wall restore"] 
 
 [session]
 restore_windows = false
@@ -20,8 +20,9 @@ camera_speed = 0.3
 auto_navigate_on_close = true
 
 [background]
-type = "wallpaper"
-path = "~/nixos-dotfiles/Wallpapers/clouds.jpg"
+#type = "wallpaper"
+#path = "~/nixos-dotfiles/Wallpapers/clouds.jpg"
+type = "none"
 
 [decorations]
 corner_radius = 0
@@ -35,10 +36,15 @@ enabled = false
 
 
 [keybindings]
-"mod+t" = "exec kitty"
-"mod+return" = "exec wofi"
-"mod+tab" = "exec firefox"
+"mod+t" = "spawn kitty"
+"mod+return" = "spawn wofi"
+"mod+tab" = "spawn firefox"
 "mod+shift+s" = "exec grim -g \"$(slurp)\" - | wl-copy"
+
+"mod+k" = "spawn ~/nixos-dotfiles/dotfiles/wofi/scripts/sys"
+"mod+o" = "spawn ~/nixos-dotfiles/dotfiles/wofi/scripts/wall"
+"mod+l" = "spawn ~/nixos-dotfiles/dotfiles/wofi/scripts/calc"
+
 "mod+q" = "close-window"
 "mod+f" = "toggle-fullscreen"
 "mod+m" = "fit-window"
@@ -64,9 +70,9 @@ enabled = false
 "mod+shift+3" = "set-bookmark 3"
 "mod+shift+4" = "set-bookmark 4"
 
-"XF86AudioPlay" = "exec playerctl play-pause"
-"XF86AudioNext" = "exec playerctl next"
-"XF86AudioPrev" = "exec playerctl previous"
+"XF86AudioPlay" = "spawn playerctl play-pause"
+"XF86AudioNext" = "spawn playerctl next"
+"XF86AudioPrev" = "spawn playerctl previous"
 
 "mod+ctrl+shift+q" = "quit"
 

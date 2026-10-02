@@ -15,6 +15,7 @@
         eflake = "sudo nvim ~/nixos-dotfiles/flake.nix";
         usys = "cd ~/nixos-dotfiles && nix flake update && echo run nrs now && cd -";
         cmod = "cd ~/nixos-dotfiles/modules";
+        cdot = "cd ~/nixos-dotfiles/dotfiles";
         ehost = "nvim ~/nixos-dotfiles/modules/hosts/nixos.nix";
       };
       initContent = ''

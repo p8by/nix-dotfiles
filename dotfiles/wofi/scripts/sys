@@ -1,0 +1,11 @@
+menu() {
+	wofi --dmenu --insensitive --cache-file /dev/null "$@"
+}
+
+case "$(printf 'kill\nlogout\nreboot\nshutdown' | menu --lines 4)" in
+	kill) ps -u "$USER" -o pid,comm,%cpu,%mem | tail -n +2 | menu --lines 10 --prompt "Kill" | awk '{print $1}' | xargs -r kill ;;
+	logout) pkill driftwm ;;
+	reboot) systemctl reboot -i ;;
+	shutdown) systemctl poweroff -i ;;
+	*) exit 1 ;;
+esac
