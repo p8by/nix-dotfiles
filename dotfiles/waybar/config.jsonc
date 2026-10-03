@@ -6,7 +6,7 @@
 
     "modules-left": ["custom/ip" , "network"],
     "modules-center": ["clock"],
-    "modules-right": ["cpu", "memory", "pulseaudio", "custom/mic"],
+    "modules-right": ["cpu", "memory", "pulseaudio", "pulseaudio#mic"],
 
     "custom/ip": {
         "exec": "ip route get 1.1.1.1 | awk '{print $7; exit}'",
@@ -38,19 +38,18 @@
     },
 
     "pulseaudio": {
-        "format": "\uf028  {volume}%",
-        "format-muted": "\uf026  Muted",
+        "format": "\uf485  {volume}%",
+        "format-muted": "\uf466  Muted",
         "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
         "scroll-step": 5
     },
-    "custom/mic": {
-    "exec": "wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | awk '{print int($2*100)\"%\"}'",
-    "interval": 5,
-    "signal": 8,
-    "format": "\uf130  {}",
-    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
-    "on-scroll-up": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SOURCE@ 5%+ && pkill -RTMIN+8 waybar",
-    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%- && pkill -RTMIN+8 waybar",
-    "tooltip": false
+    "pulseaudio#mic": {
+      "format": "{format_source}",
+      "format-source": "\uf130  {volume}%",
+      "format-source-muted": "\uf131  Muted",
+      "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+      "on-scroll-up": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SOURCE@ 5%+",
+      "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%-",
+      "tooltip": false
     }
 }
