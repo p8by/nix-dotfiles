@@ -16,12 +16,14 @@
       config.flake.modules.nixos.users
       config.flake.modules.nixos.fonts
       config.flake.modules.nixos.hardware
-      config.flake.modules.nixos.printer
+#      config.flake.modules.nixos.printer
       config.flake.modules.nixos.mergerfs
       config.flake.modules.nixos.steam
 #      config.flake.modules.nixos.ollama
       config.flake.modules.nixos.thrustmaster-mfd
       config.flake.modules.nixos.driftwm
+      config.flake.modules.nixos.appimage
+      config.flake.modules.nixos.nix-ld
       inputs.home-manager.nixosModules.home-manager
       {
         home-manager = {

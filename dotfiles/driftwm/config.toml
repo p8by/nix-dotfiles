@@ -2,7 +2,7 @@
 mod_key = "super"
 
 focus_follows_mouse = true
-window_placement = "center"
+window_placement = "cursor"
 
 autostart = [ "waybar" , "mako", "~/nixos-dotfiles/dotfiles/wofi/scripts/wall restore"] 
 
@@ -28,11 +28,18 @@ type = "none"
 corner_radius = 0
 shadow = false
 default_mode = "minimal"
-opacity = 1.0
+opacity = 1
 blur = false
 
 [snap]
-enabled = false
+enabled = true
+gap = 7
+break_force = 32
+centers = true
+
+[zoom]
+reset_on_activation = true
+reset_on_new_window = false
 
 
 [keybindings]

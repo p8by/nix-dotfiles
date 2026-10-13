@@ -32,6 +32,7 @@
     kitty
     imagemagick
     davinci-resolve
+    heroic
 
     #stuff for wm
     wofi
@@ -56,14 +57,12 @@
     python3
     clang
     clang-tools
-    
     ffmpeg
     openssl
     aria2
 
     mesa-demos
 
-    appimage-run
 
     pkgsCross.mingwW64.buildPackages.gcc
     
