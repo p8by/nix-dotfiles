@@ -1,9 +1,7 @@
 # https://malbiruk.github.io/driftwm/config.html
 mod_key = "super"
-
 focus_follows_mouse = true
 window_placement = "cursor"
-
 autostart = [ "waybar" , "mako", "~/nixos-dotfiles/dotfiles/wofi/scripts/wall restore"] 
 
 [session]
@@ -87,6 +85,10 @@ reset_on_new_window = false
 
 "mod+left" = "move-window"
 "mod+right" = "resize-window"
+
+"alt+left" = "none"
+"alt+right" = "none"
+"alt+middle" = "none"
 
 [[outputs]]
 name = "DP-2"
