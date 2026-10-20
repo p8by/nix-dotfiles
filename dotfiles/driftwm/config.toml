@@ -19,7 +19,8 @@ auto_navigate_on_close = true
 
 [background]
 #type = "wallpaper"
-#path = "~/nixos-dotfiles/Wallpapers/clouds.jpg"
+#path = "/home/dexter/nixos-dotfiles/dotfiles/driftwm/shaders/parallax.glsl"
+#texture = "/home/dexter/nixos-dotfiles/Wallpapers/Mandelbrot.jpg"
 type = "none"
 
 [decorations]

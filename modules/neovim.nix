@@ -3,6 +3,7 @@
     environment.systemPackages = [ pkgs.nixd pkgs.pyright ];
     programs.neovim = {
       enable = true;
+      defaultEditor = true;
       configure = {
         customRC = ''
           set ai

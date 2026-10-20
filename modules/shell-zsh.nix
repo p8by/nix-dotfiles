@@ -26,6 +26,7 @@
       WINEPREFIX = "$HOME/.prefixname";
       WINEARCH = "win64";
       TERMINAL = "kitty";
+      EDITOR = "nvim";
     };
     xdg.terminal-exec.enable = true;
     xdg.terminal-exec.settings.default = ["kitty.desktop"];

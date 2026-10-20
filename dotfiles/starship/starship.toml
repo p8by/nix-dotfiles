@@ -94,10 +94,10 @@ disabled = true
 
 # >>> wal palette >>>
 [palettes.wal]
-bg0 = "#042912"
-bg1 = "#339b56"
-bg2 = "#90e3ab"
-bg3 = "#90e3ab"
-fg = "#c2c7c4"
-accent = "#78e5e7"
+bg0 = "#04102f"
+bg1 = "#34489e"
+bg2 = "#ecd890"
+bg3 = "#ecd890"
+fg = "#c3c4c8"
+accent = "#ffe5b7"
 # <<< wal palette <<<
