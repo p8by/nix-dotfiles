@@ -19,9 +19,9 @@ auto_navigate_on_close = true
 
 [background]
 #type = "wallpaper"
-#path = "/home/dexter/nixos-dotfiles/dotfiles/driftwm/shaders/parallax.glsl"
-#texture = "/home/dexter/nixos-dotfiles/Wallpapers/Mandelbrot.jpg"
-type = "none"
+path = "/home/dexter/nixos-dotfiles/dotfiles/driftwm/shaders/parallax.glsl"
+texture = "/home/dexter/nixos-dotfiles/Wallpapers/clouds2.jpg"
+type = "shader"
 
 [decorations]
 corner_radius = 0

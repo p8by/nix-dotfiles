@@ -48,6 +48,7 @@
     pywal16
     libqalculate #for wofi calc script
     swaybg
+    cava
     ###
 
     wineWow64Packages.base

@@ -4,9 +4,9 @@
     "height": 30,
     "spacing": 4,
 
-    "modules-left": ["custom/ip" , "network"],
+    "modules-left": ["custom/ip" , "network", "cava"],
     "modules-center": ["clock"],
-    "modules-right": ["cpu", "memory", "pulseaudio", "pulseaudio#mic"],
+    "modules-right": ["cpu", "memory","keyboard-state", "pulseaudio", "pulseaudio#mic"],
 
     "custom/ip": {
         "exec": "ip route get 1.1.1.1 | awk '{print $7; exit}'",
@@ -16,9 +16,9 @@
     },
 
     "network": {
-    "interval": 2,
-    "format": "\uea9a {bandwidthDownBytes}  \ueaa1 {bandwidthUpBytes}",
-    "tooltip-format": "{ifname}: {ipaddr}/{cidr}"
+        "interval": 2,
+        "format": "\uea9a {bandwidthDownBytes}  \ueaa1 {bandwidthUpBytes}",
+        "tooltip-format": "{ifname}: {ipaddr}/{cidr}"
     },
 
     "clock": {
@@ -29,12 +29,31 @@
 
     "cpu": {
         "format": "\uf4bc  {usage}%",
-        "interval": 5
+        "interval": 6
     },
 
     "memory": {
         "format": "\uefc5  {}%",
         "interval": 5
+    },
+    
+    "cava": {
+        "framerate": 30,
+        "autosense": 1,
+        "bars": 14,
+        "waves": true
+    },
+
+    "keyboard-state": {
+        "numlock": false,
+        "capslock": true,
+        "scrolllock": false,
+        "format-icons":{
+            "capslock": {
+                "locked": "A",
+                "unlocked": "a"   
+            }
+        }
     },
 
     "pulseaudio": {

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+driftwm_cfg="$HOME/nixos-dotfiles/dotfiles/driftwm/config.toml"
 dir="$HOME/nixos-dotfiles/Wallpapers"
 state="$HOME/.cache/current-wallpaper"
 wal_sh="$HOME/.cache/wal/colors.sh"
@@ -65,12 +65,19 @@ starship_palette() {
 
 	rm -f "$palfile" "$tmp"
 }
-
+set_texture() {
+	[ -f "$driftwm_cfg" ] || return 0
+	local tmp
+	tmp="$(mktemp)"
+	awk -v p="$1" '
+		/^[[:space:]]*texture[[:space:]]*=/ { print "texture = \"" p "\""; next }
+		{ print }
+	' "$driftwm_cfg" > "$tmp" && cat "$tmp" > "$driftwm_cfg"
+	rm -f "$tmp"
+}
 apply() {
-	old="$(pgrep -x swaybg || true)"
-	setsid swaybg -i "$1" -m fill >/dev/null 2>&1 &
-	sleep 0.3
-	[ -n "$old" ] && kill $old
+	set_texture "$1"
+	driftwm msg action reload-config >/dev/null 2>&1 || touch "$driftwm_cfg"
 	wal -n -q --saturate 0.4 -i "$1"
 	starship_palette
 	pkill -SIGUSR2 waybar || true
