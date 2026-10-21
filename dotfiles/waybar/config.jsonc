@@ -6,7 +6,7 @@
 
     "modules-left": ["custom/ip" , "network", "cava"],
     "modules-center": ["clock"],
-    "modules-right": ["cpu", "memory","keyboard-state", "pulseaudio", "pulseaudio#mic"],
+    "modules-right": ["keyboard-state", "cpu", "memory", "pulseaudio", "pulseaudio#mic"],
 
     "custom/ip": {
         "exec": "ip route get 1.1.1.1 | awk '{print $7; exit}'",
@@ -37,22 +37,29 @@
         "interval": 5
     },
     
+
     "cava": {
-        "framerate": 30,
+        "framerate": 60,
         "autosense": 1,
-        "bars": 14,
-        "waves": true
+    "bars": 14,
+    "method": "pipewire",
+    "source": "auto",
+    "bar_delimiter": 0,
+    "input_delay": 0,
+    "noise_reduction": 0.1,
+    "hide_on_silence": false,
+    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"]
     },
+    
 
     "keyboard-state": {
         "numlock": false,
         "capslock": true,
         "scrolllock": false,
-        "format-icons":{
-            "capslock": {
-                "locked": "A",
-                "unlocked": "a"   
-            }
+        "format": "{icon}",
+        "format-icons": {
+            "locked": "A",
+            "unlocked": "a"
         }
     },
 

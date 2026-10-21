@@ -16,8 +16,8 @@ window#waybar {
 #memory,
 #pulseaudio,
 #network,
-#cava
-#keyboard-state
+#cava,
+#keyboard-state,
 #custom-mic {
     padding: 0 12px;
     margin: 4px 2px;
@@ -49,11 +49,18 @@ window#waybar {
 }
 
 #pulseaudio,
-#custom-mic {
+#pulseaudio.mic {
     color: @color7;
 }
 
 #pulseaudio.muted,
 #custom-mic.muted {
-    color: @colour2;
+    color: @color2;
+}
+#keyboard-state label {
+    color: @color7;
+}
+
+#keyboard-state label.locked {
+    color: @color7;
 }
