@@ -5,7 +5,7 @@
       networkmanager.enable = true;
       networkmanager.dns = "none";
       firewall.enable = true;
-      firewall.allowedTCPPorts = [  ];
+      firewall.allowedTCPPorts = [49483];
       firewall.allowedUDPPorts = [  ];
       nameservers = [ "9.9.9.9" "149.112.112.112" ];
     };

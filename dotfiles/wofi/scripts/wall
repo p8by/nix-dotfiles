@@ -65,6 +65,7 @@ starship_palette() {
 
 	rm -f "$palfile" "$tmp"
 }
+
 set_texture() {
 	[ -f "$driftwm_cfg" ] || return 0
 	local tmp
@@ -75,18 +76,38 @@ set_texture() {
 	' "$driftwm_cfg" > "$tmp" && cat "$tmp" > "$driftwm_cfg"
 	rm -f "$tmp"
 }
+
+restart_waybar() {
+	local i
+	if systemctl --user is-enabled waybar.service >/dev/null 2>&1; then
+		systemctl --user restart waybar.service
+		return 0
+	fi
+	pkill waybar 2>/dev/null || true
+	for i in $(seq 1 30); do
+		pgrep waybar >/dev/null 2>&1 || break
+		sleep 0.05
+	done
+	pkill -9 waybar 2>/dev/null || true
+	setsid waybar >/dev/null 2>&1 < /dev/null &
+}
+
 apply() {
 	set_texture "$1"
 	driftwm msg action reload-config >/dev/null 2>&1 || touch "$driftwm_cfg"
 	wal -n -q --saturate 0.4 -i "$1"
 	starship_palette
-	pkill -SIGUSR2 waybar || true
+	restart_waybar
 	mkdir -p "$(dirname "$state")"
 	printf '%s' "$1" > "$state"
 }
 
 if [ "${1:-}" = "restore" ]; then
-	[ -f "$state" ] && apply "$(cat "$state")"
+	if [ -f "$state" ]; then
+		apply "$(cat "$state")"
+	else
+		restart_waybar
+	fi
 	exit 0
 fi
 

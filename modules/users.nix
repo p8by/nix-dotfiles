@@ -7,6 +7,16 @@
       packages = [ pkgs.tree ];
       shell = pkgs.zsh;
     };
-    environment.systemPackages = with pkgs; [ vim wget];
+
+    environment.systemPackages = with pkgs; [ vim wget ];
+
+#   security.pam.loginLimits = [
+#     {
+#       domain = "*";
+#       type = "soft";
+#       item = "nofile";
+#       value = "65536";
+#     }
+#   ];
   };
 }

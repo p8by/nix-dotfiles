@@ -8,15 +8,12 @@
 
     programs.driftwm.enable = true;
 
-    services.pipewire.enable = true;
-
     xdg.portal = {
       enable = true;
       extraPortals = [
         pkgs.xdg-desktop-portal-wlr
         pkgs.xdg-desktop-portal-gtk
       ];
-      # XDG_CURRENT_DESKTOP=driftwm reads driftwm-portals.conf
       config.driftwm = {
         default = [ "gtk" ];
         "org.freedesktop.impl.portal.ScreenCast" = [ "wlr" ];

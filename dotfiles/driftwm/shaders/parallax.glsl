@@ -41,7 +41,7 @@ void main() {
 
     vec2 canvas_center = u_camera + 0.5 * u_output_size;
 
-    vec2 wrapped_center = mod(canvas_center * PARALLAX_FACTOR, tile_canvas * 2.0);
+    vec2 wrapped_center = mod(canvas_center * PARALLAX_FACTOR + 0.5 * tile_canvas, tile_canvas * 2.0);
 
     vec2 from_center = (v_coords - 0.5) * screen_size / eff_zoom;
 
