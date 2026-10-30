@@ -20,7 +20,7 @@ auto_navigate_on_close = true
 [background]
 #type = "wallpaper"
 path = "/home/dexter/nixos-dotfiles/dotfiles/driftwm/shaders/parallax.glsl"
-texture = "/home/dexter/nixos-dotfiles/Wallpapers/clouds2.jpg"
+texture = "/home/dexter/nixos-dotfiles/Wallpapers/stalker.jpg"
 type = "shader"
 
 [decorations]

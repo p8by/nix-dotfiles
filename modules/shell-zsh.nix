@@ -20,6 +20,7 @@
       };
       initContent = ''
         eval "$(${pkgs.starship}/bin/starship init zsh)"
+        fastfetch
       '';
     };
     home.sessionVariables = {

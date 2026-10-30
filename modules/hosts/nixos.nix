@@ -24,6 +24,7 @@
       config.flake.modules.nixos.driftwm
       config.flake.modules.nixos.appimage
       config.flake.modules.nixos.nix-ld
+#      config.flake.modules.nixos.dwl
       inputs.home-manager.nixosModules.home-manager
       {
         home-manager = {
