@@ -18,7 +18,9 @@ camera_speed = 0.3
 auto_navigate_on_close = true
 
 [background]
-#type = "wallpaper"
+cache_budget_mb = 512
+#type = "tile"
+#path = "/home/dexter/nixos-dotfiles/Wallpapers/wplaceJapan.tif"
 path = "/home/dexter/nixos-dotfiles/dotfiles/driftwm/shaders/parallax.glsl"
 texture = "/home/dexter/nixos-dotfiles/Wallpapers/stalker.jpg"
 type = "shader"
@@ -29,6 +31,7 @@ shadow = false
 default_mode = "minimal"
 opacity = 1
 blur = false
+border_width = 0
 
 [snap]
 enabled = true

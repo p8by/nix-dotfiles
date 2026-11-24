@@ -31,7 +31,6 @@
     prismlauncher
     kitty
     imagemagick
-    davinci-resolve
     heroic
 
     #stuff for wm

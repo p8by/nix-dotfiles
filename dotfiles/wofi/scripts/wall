@@ -12,6 +12,9 @@ menu() {
 
 thumb() {
 	local src="$1" key out
+	case "${src,,}" in
+		*.tif|*.tiff) return 1 ;;
+	esac
 	key="$(printf '%s' "$src" | md5sum | cut -d' ' -f1)-$(stat -c %Y "$src")"
 	out="$thumbs/$key.png"
 	if [ ! -f "$out" ]; then
@@ -23,7 +26,7 @@ thumb() {
 
 list() {
 	local rel t
-	find "$dir" -type f \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' -o -iname '*.webp' \) -printf '%P\n' | sort |
+	find "$dir" -type f \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' -o -iname '*.webp' -o -iname '*.tif' -o -iname '*.tiff' \) -printf '%P\n' | sort |
 		while IFS= read -r rel; do
 			if t="$(thumb "$dir/$rel")"; then
 				printf 'img:%s:text:%s\n' "$t" "$rel"
